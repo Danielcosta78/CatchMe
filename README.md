@@ -27,14 +27,71 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 3. Configure with your settings:
 ```javascript
 <script>
-window.captchaConfig = {
-    licenseKey: "YOUR_LICENSE_KEY", // Remove "Powered by" branding
-    containerId: 'captcha-container',
-    onSuccess: function() {
-        // Handle successful verification
-    }
-    // See full configuration options in documentation
-};
+    // CAPTCHA Configuration - Add this before loading the CAPTCHA script
+    window.captchaConfig = {
+        licenseKey: "SC-ACTIVATE-1234-5678-ABCD", // To remove the mark Powered by CatchMe
+        redirectUrl: '#',  // Redirection URL (use '#' if handling via callback)
+        
+        /* Optional settings below */
+        maxAttempts: 3,    // Maximum allowed attempts before lockout
+        captchaTitle: 'Security Verification',
+        captchaInstructions: 'Solve the simple math problem to continue',
+        successMessage: 'Verification successful!',
+        containerId: 'captcha-container',  // ID of your container element
+        
+        // Callback functions
+        onSuccess: function() {
+            // Handle successful verification
+            alert('CAPTCHA validation passed!');
+            // Enable your form submission here
+        },
+        onFailure: function(attempts) {
+            // Handle failed attempts
+            console.warn(`CAPTCHA failed after ${attempts} attempts`);
+        },
+        onInit: function() {
+            // Runs when CAPTCHA loads
+            console.log('CAPTCHA initialized successfully');
+        },
+        
+        // Custom CSS overrides
+        customStyle: `
+            /* Main container */
+            .captcha-container {
+                background: #f8f9fa !important;
+                border: 1px solid #dee2e6 !important;
+            }
+            
+            /* Title text */
+            .captcha-title {
+                color: #2c3e50 !important;
+            }
+            
+            /* Verify button */
+            .verify-button {
+                background: #3498db !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            /* Hover state for button */
+            .verify-button:hover {
+                background: #2980b9 !important;
+            }
+            
+            /* Input field */
+            .answer-input {
+                border: 2px solid #ddd !important;
+            }
+            /* ↓ more ↓
+            .captcha-instructions
+            .equation-container
+            .equation-display
+            .refresh-button
+            .status-message
+            .status-message.success
+            .status-message.error */
+        `
+    };
 </script>
 ```
 
@@ -53,15 +110,70 @@ window.captchaConfig = {
 3. Configure detection:
 ```javascript
 <script>
-window.BotDetector.init({
-    buttonContainer: {
-        selector: "#verification-button"
-    },
-    callback: (results) => {
-        console.log("Verification results:", results);
-    }
-    // See full configuration options
-});
+    window.BotDetector.init({
+      licenseKey: "",
+      silent: false,
+      callback: (results) => {
+        console.log("Bot Detection Results:", results);
+      },
+      button: {
+        text: "Verify Now",
+        verifyingText: "Verifying...",
+        successText: "Verified",
+        failText: "Failed",
+        styles: {
+          background: "#4a6fa5",
+          color: "#fff",
+          borderRadius: "4px",
+          fontSize: "16px",
+          minWidth: "120px",
+          minHeight: "40px",
+          boxSizing: "border-box",
+        },
+        verifyingStyles: {
+          background: "#6c757d",
+          cursor: "not-allowed",
+        },
+        successStyles: {
+          background: "#28a745",
+        },
+        failStyles: {
+          background: "#d32f2f",
+        },
+      },
+      resultMessage: {
+        successText: "Human detected!",
+        failText: "Bot detected!",
+        styles: {
+          marginTop: "5px",
+          fontSize: "14px",
+          fontWeight: "500",
+          color: "#333",
+          textAlign: "center",
+          display: "block",
+          position: "relative",
+          background: "rgba(255, 255, 255, 0.9)",
+          padding: "5px 10px",
+          borderRadius: "4px",
+          zIndex: "1000",
+        },
+        successStyles: {
+          color: "#28a745",
+        },
+        failStyles: {
+          color: "#d32f2f",
+        },
+      },
+      buttonContainer: {
+        selector: "#verification-button",
+        inheritStyles: true,
+      },
+      conditions: {
+        hiddenWebDriver: { enabled: true, weight: 3 },
+        suspiciousUA: { enabled: true, weight: 2 },
+        linearMouseMovement: { enabled: true, weight: 2 },
+      },
+    });
 </script>
 ```
 
@@ -72,17 +184,6 @@ window.BotDetector.init({
 - `maxAttempts`: Failed attempts before lockout (default: 3)
 - `captchaTitle`: Custom title text
 - `customStyle`: CSS overrides for complete styling control
-  .captcha-container
-  .captcha-title
-  .verify-button
-  .answer-input
-  .captcha-instructions
-  .equation-container
-  .equation-display
-  .refresh-button
-  .status-message
-  .status-message.success
-  .status-message.error
 - Callbacks: `onSuccess`, `onFailure`, `onInit`
 
 ### Bot Detection Options
