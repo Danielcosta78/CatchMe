@@ -1,8 +1,6 @@
 ```markdown
 # CatchMe CAPTCHA & Bot Detection
 
-![CatchMe CAPTCHA Logo](https://catchmecaptcha.vercel.app/icon.png)
-
 A lightweight, customizable CAPTCHA and bot detection solution that protects your website without frustrating users.
 
 ## Features
