@@ -1,4 +1,3 @@
-```markdown
 # CatchMe CAPTCHA & Bot Detection
 
 A lightweight, customizable CAPTCHA and bot detection solution that protects your website without frustrating users.
