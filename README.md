@@ -91,9 +91,8 @@ Remove "Powered by CatchMe" branding with a one-time $10 license:
 
 ## Support
 
-For issues or feature requests, please [open an issue](https://github.com/your-repo/issues)
+For issues or feature requests, please [open an issue](https://github.com/Danielcosta78/)
 
 ---
 
-© 2023 CatchMe CAPTCHA | [Visit Website](https://catchmecaptcha.vercel.app)
-```
+© 2025 CatchMe CAPTCHA | [Visit Website](https://catchmecaptcha.vercel.app)
