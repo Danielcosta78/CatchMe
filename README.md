@@ -125,7 +125,6 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
             // Disable features or show warning
             document.getElementById('secure-content').style.display = 'none';
         }
-        console.log("Bot Detection Results:", results);
       },
       // Styles (optional)
       button: {
