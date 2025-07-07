@@ -180,6 +180,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
         inheritStyles: true,
       },
       // WARNING changing the parameters may cause malfunction
+      // 5 and above is already considered a bot
       conditions: {
         hiddenWebDriver: { enabled: true, weight: 3 }, // WebDriver is present but hidden (common in bot evasion)
         untrustedEvents: { enabled: true, weight: 3 }, // Input events not triggered by a real user (e.g. via JS)
