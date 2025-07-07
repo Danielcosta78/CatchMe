@@ -21,7 +21,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 
 2. Include the CDN script (preferably before `</body>`):
 ```html
-<script src="https://catchmecaptcha.vercel.app/cdn/catchme.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Danielcosta78/CatchMe@main/cdn/captcha.js"></script>
 ```
 
 3. Configure with your settings:
@@ -47,7 +47,7 @@ window.captchaConfig = {
 
 2. Include the detection script:
 ```html
-<script src="https://catchmecaptcha.vercel.app/cdn/botdetector.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Danielcosta78/CatchMe@main/cdn/botdetector.js"></script>
 ```
 
 3. Configure detection:
