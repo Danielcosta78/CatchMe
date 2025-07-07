@@ -179,10 +179,38 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
         selector: "#verification-button",
         inheritStyles: true,
       },
+      // WARNING changing the parameters may cause malfunction
       conditions: {
-        hiddenWebDriver: { enabled: true, weight: 3 },
-        suspiciousUA: { enabled: true, weight: 2 },
-        linearMouseMovement: { enabled: true, weight: 2 },
+        /* === Automation Detection === */
+        hiddenWebDriver: { enabled: true, weight: 4 },       // Selenium/Puppeteer
+        headlessBrowser: { enabled: true, weight: 3 },       // Chrome Headless
+        automationTools: { enabled: true, weight: 3 },       // Tools like Cypress
+  
+        /* === Browser Analysis === */
+        suspiciousUA: { enabled: true, weight: 3 },          // Invalid User-Agent
+        browserPlugins: { enabled: true, weight: 2 },        // Missing plugins
+        cookieSupport: { enabled: true, weight: 1 },         // Blocked cookies
+        localStorage: { enabled: true, weight: 1 },          // Disabled localStorage
+  
+        /* === User Behavior === */
+        linearMouseMovement: { enabled:   true, weight: 2 },   // Robotic movements
+        keyboardPatterns: { enabled: true, weight: 2 },      // Artificial typing
+        inactivityTimeout: { enabled: true, weight: 1 },     // No human interaction
+  
+        /* === Fingerprinting === */
+        canvasFingerprint: { enabled: true, weight: 2 },     // Anomalous rendering
+        webGLMetadata: { enabled: true, weight: 2 },         // Fake GPU
+        audioContext: { enabled: true, weight: 1 },          // Inconsistent audio API
+  
+        /* === Geolocation === */
+        timezoneDiscrepancy: { enabled: true, weight: 1 },    // Timezone vs IP
+        languageDiscrepancy: { enabled: true, weight: 1 },    // Language vs location
+        screenResolution: { enabled: true, weight: 1 },       // Suspicious resolution
+  
+        /* === Device Analysis === */
+        touchSupport: { enabled: true, weight: 1 },          // Simulated touch
+        deviceMemory: { enabled: true, weight: 1 },          // Anomalous memory
+        hardwareConcurrency: { enabled: true, weight: 1 }    // CPU cores
       },
     });
 </script>
