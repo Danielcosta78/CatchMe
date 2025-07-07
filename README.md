@@ -181,36 +181,21 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
       },
       // WARNING changing the parameters may cause malfunction
       conditions: {
-        /* === Automation Detection === */
-        hiddenWebDriver: { enabled: true, weight: 4 },       // Selenium/Puppeteer
-        headlessBrowser: { enabled: true, weight: 3 },       // Chrome Headless
-        automationTools: { enabled: true, weight: 3 },       // Tools like Cypress
-  
-        /* === Browser Analysis === */
-        suspiciousUA: { enabled: true, weight: 3 },          // Invalid User-Agent
-        browserPlugins: { enabled: true, weight: 2 },        // Missing plugins
-        cookieSupport: { enabled: true, weight: 1 },         // Blocked cookies
-        localStorage: { enabled: true, weight: 1 },          // Disabled localStorage
-  
-        /* === User Behavior === */
-        linearMouseMovement: { enabled:   true, weight: 2 },   // Robotic movements
-        keyboardPatterns: { enabled: true, weight: 2 },      // Artificial typing
-        inactivityTimeout: { enabled: true, weight: 1 },     // No human interaction
-  
-        /* === Fingerprinting === */
-        canvasFingerprint: { enabled: true, weight: 2 },     // Anomalous rendering
-        webGLMetadata: { enabled: true, weight: 2 },         // Fake GPU
-        audioContext: { enabled: true, weight: 1 },          // Inconsistent audio API
-  
-        /* === Geolocation === */
-        timezoneDiscrepancy: { enabled: true, weight: 1 },    // Timezone vs IP
-        languageDiscrepancy: { enabled: true, weight: 1 },    // Language vs location
-        screenResolution: { enabled: true, weight: 1 },       // Suspicious resolution
-  
-        /* === Device Analysis === */
-        touchSupport: { enabled: true, weight: 1 },          // Simulated touch
-        deviceMemory: { enabled: true, weight: 1 },          // Anomalous memory
-        hardwareConcurrency: { enabled: true, weight: 1 }    // CPU cores
+        hiddenWebDriver: { enabled: true, weight: 3 }, // WebDriver is present but hidden (common in bot evasion)
+        untrustedEvents: { enabled: true, weight: 3 }, // Input events not triggered by a real user (e.g. via JS)
+        webdriver: { enabled: true, weight: 2 }, // Standard WebDriver detection (navigator.webdriver = true)
+        headless: { enabled: true, weight: 2 }, // Headless browser detected (e.g., headless Chrome)
+        linearMouseMovement: { enabled: true, weight: 2 }, // Mouse moves in straight lines (not natural)
+        tooPerfectDelays: { enabled: true, weight: 2 }, // Interaction delays are too precise or repetitive
+        suspiciousUA: { enabled: true, weight: 1 }, // Suspicious or uncommon User-Agent string
+        fakeLanguages: { enabled: true, weight: 1 }, // navigator.languages is empty or spoofed
+        fakePermissions: { enabled: true, weight: 1 }, // navigator.permissions returns unrealistic or static values
+        windowDimensionsMatch: { enabled: true, weight: 1 }, // Outer and inner window sizes match perfectly (common in bots)
+        fontRenderingFailed: { enabled: true, weight: 1 }, // Failure in rendering fonts (headless/browserless environments)
+        canvasFingerprintMismatch: { enabled: true, weight: 1 }, // Canvas fingerprint doesn't match expected values (spoofed)
+        noPlugins: { enabled: true, weight: 0.5 }, // navigator.plugins is empty (unusual for normal browsers)
+        performanceTooFast: { enabled: true, weight: 0.5 }, // Page loads or responses are unnaturally fast
+        rapidClicks: { enabled: true, weight: 0.5 }, // Too many clicks in a short time (bot-like behavior)
       },
     });
 </script>
