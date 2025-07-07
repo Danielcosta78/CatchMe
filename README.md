@@ -116,6 +116,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
       callback: (results) => {
         console.log("Bot Detection Results:", results);
       },
+      // Styles (optional)
       button: {
         text: "Verify Now",
         verifyingText: "Verifying...",
@@ -187,6 +188,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 - Callbacks: `onSuccess`, `onFailure`, `onInit`
 
 ### Bot Detection Options
+- `licenseKey`: Remove "Powered by" branding ($10 one-time fee)
 - `conditions`: Configure detection parameters (UA checks, mouse movement etc.)
 - `button`: Customize verification button appearance
 - `resultMessage`: Style success/failure messages
