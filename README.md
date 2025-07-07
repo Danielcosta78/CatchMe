@@ -115,6 +115,16 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
       silent: false,
       callback: (results) => {
         // add your callback here
+        // example
+        if (results.isHuman) {
+            console.log("Human detected - proceed");
+            // Enable form submission, grant access, etc.
+            document.getElementById('submit-btn').disabled = false;
+        } else {
+            console.warn("Bot detected - take action");
+            // Disable features or show warning
+            document.getElementById('secure-content').style.display = 'none';
+        }
         console.log("Bot Detection Results:", results);
       },
       // Styles (optional)
