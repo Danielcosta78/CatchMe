@@ -114,6 +114,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
       licenseKey: "",
       silent: false,
       callback: (results) => {
+        // add your callback here
         console.log("Bot Detection Results:", results);
       },
       // Styles (optional)
