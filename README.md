@@ -226,6 +226,7 @@ See CatchMe in action on our [demo page](https://catchmecaptcha.vercel.app)
 ## License
 
 Remove "Powered by CatchMe" branding with a one-time $10 license:
+
 [![Buy Now](https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MV2RQ75CA8S82)
 
 ## Support
