@@ -213,6 +213,7 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 
 ### Bot Detection Options
 - `licenseKey`: Remove "Powered by" branding ($10 one-time fee)
+- `callback`: Add your callback
 - `conditions`: Configure detection parameters (UA checks, mouse movement etc.)
 - `button`: Customize verification button appearance
 - `resultMessage`: Style success/failure messages
