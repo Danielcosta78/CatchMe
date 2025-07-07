@@ -72,6 +72,17 @@ window.BotDetector.init({
 - `maxAttempts`: Failed attempts before lockout (default: 3)
 - `captchaTitle`: Custom title text
 - `customStyle`: CSS overrides for complete styling control
+  .captcha-container
+  .captcha-title
+  .verify-button
+  .answer-input
+  .captcha-instructions
+  .equation-container
+  .equation-display
+  .refresh-button
+  .status-message
+  .status-message.success
+  .status-message.error
 - Callbacks: `onSuccess`, `onFailure`, `onInit`
 
 ### Bot Detection Options
