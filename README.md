@@ -206,7 +206,7 @@ Start automatic scan without button when opening page:
 ```javascript
 <script>
     window.captchaConfig = {
-        licenseKey: "SC-ACTIVATE-7493-5284-JRPC", // Removes branding
+        licenseKey: "LICENSE KEY", // Removes branding
         silent: true, // Disables console logs
         sendToServer: false, // Set to true to send results to your server
         buttonContainer: { selector: null }, // Hides the verification button
