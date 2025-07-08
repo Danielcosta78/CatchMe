@@ -204,24 +204,31 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 
 Start automatic scan without button when opening page:
 ```javascript
-window.captchaConfig = {
-  licenseKey: "YOUR_LICENSE_KEY_HERE", // Optional to remove branding
-  silent: true, // Disables console logs
-  sendToServer: false, // Or true if you want to send results
-  callback: function(results) {
-    // This function will be called when verification completes
-    if (results.isBot) {
-      // Action for bots (optional - detector already blocks automatically)
-      console.log("Bot detected!");
-    } else {
-      // Action for humans
-      console.log("Human user verified");
-    }
-  }
-};
+<script>
+    window.captchaConfig = {
+        licenseKey: "SC-ACTIVATE-7493-5284-JRPC", // Removes branding
+        silent: true, // Disables console logs
+        sendToServer: false, // Set to true to send results to your server
+        buttonContainer: { selector: null }, // Hides the verification button
+        callback: function(results) {
+            if (results.isBot) {
+                console.log("Bot detected! (Page will be blocked automatically)");
+            } else {
+                console.log("Human user verified");
+            }
+        }
+    };
 
-// Initialize the detector automatically
-window.BotDetector.init(window.captchaConfig);
+    // Initialize the detector
+    window.BotDetector.init(window.captchaConfig);
+
+    // --- Force verification after short delay ---
+    setTimeout(() => {
+        if (window.BotDetector.run) {
+            window.BotDetector.run(); // Programmatically start verification
+        }
+    }, 500); // Delay ensures detector is fully initialized
+</script>
 ```
 
 ## Configuration Options
