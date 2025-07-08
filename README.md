@@ -230,6 +230,7 @@ Start automatic scan without button when opening page:
     }, 500); // Delay ensures detector is fully initialized
 </script>
 ```
+#### NOTE: both CDNs use the same global variable, using them simultaneously causes them to stop working.
 
 ## Configuration Options
 
