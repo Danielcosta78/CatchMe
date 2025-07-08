@@ -202,6 +202,28 @@ A lightweight, customizable CAPTCHA and bot detection solution that protects you
 </script>
 ```
 
+Start automatic scan without button when opening page:
+```javascript
+window.captchaConfig = {
+  licenseKey: "YOUR_LICENSE_KEY_HERE", // Optional to remove branding
+  silent: true, // Disables console logs
+  sendToServer: false, // Or true if you want to send results
+  callback: function(results) {
+    // This function will be called when verification completes
+    if (results.isBot) {
+      // Action for bots (optional - detector already blocks automatically)
+      console.log("Bot detected!");
+    } else {
+      // Action for humans
+      console.log("Human user verified");
+    }
+  }
+};
+
+// Initialize the detector automatically
+window.BotDetector.init(window.captchaConfig);
+```
+
 ## Configuration Options
 
 ### CAPTCHA Options
